@@ -65,9 +65,9 @@
                 {
                     left[i] = array[i];
                 }
-                for (int i = array.Length / 2 + 1; i <= array.Length; i++)
+                for (int i = 0; i < array.Length / 2; i++)
                 {
-                    right[i] = array[i];
+                    right[i] = array[array.Length / 2 + 1 + i];
                 }
 
             }
