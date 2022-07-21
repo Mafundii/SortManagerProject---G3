@@ -6,7 +6,7 @@ namespace SortManagerApp
     {
         static void Main(string[] args)
         {
-            int[] array = MergeSort.Sort(new int[] { 4, 3, 6, 7, 5 }); 
+            int[] array = MergeSort.Sort(new int[] { -4, 12, -1, 0, 89, 1000, 9, -1 }); 
             foreach (int i in array)
             {
                 Console.WriteLine(i);
