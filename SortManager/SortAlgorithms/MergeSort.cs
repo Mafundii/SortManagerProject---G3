@@ -38,7 +38,7 @@
 
         }
 
-        public static int[] Sort(int[] array)
+        public static int[] MergeSorting(int[] array)
         {
             if (array.Length <= 1) return array;
             int[] left;
@@ -72,8 +72,8 @@
 
             }
 
-            left = Sort(left);
-            right = Sort(right);
+            left = MergeSorting(left);
+            right = MergeSorting(right);
 
             var result = Merge(left, right);
 

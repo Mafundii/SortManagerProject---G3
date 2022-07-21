@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,57 +13,75 @@ namespace SortManagerApp
 
         static void Main(string[] args)
         {
-            Controller.Control();
+            while (true)
+            {
+                MainMenu();
+                var input = Console.ReadLine();
+                var parsedSort = Controller.ParseSortMethod(input);
+                while (parsedSort == 0)
+                {
+                    InvalidInput();
+                    MainMenu();
+                    input = Console.ReadLine();
+                }
+
+                InputNumber();
+                var input2 = Console.ReadLine();
+                var parsedLen = Controller.ParseLen(input2);
+                while (parsedLen == -1)
+                {
+                    InvalidInput();
+                    InputNumber();
+                    input2 = Console.ReadLine();
+                }
+
+                DisplaySorted(parsedSort, parsedLen);
+
+
+
+            }
         }
 
         public static void MainMenu()
         {
-            Console.WriteLine("Please select sorting algorithms:");
-            Console.WriteLine("[1] Bubble Sort");
-            Console.WriteLine("[2] Merge Sort");
-            Console.WriteLine("[3] .Net Sort");
-            Console.WriteLine("[4] Exit");
-            Console.WriteLine();
+            Console.WriteLine("Please select sorting algorithms:\n" +
+                "[1] Bubble Sort\n" +
+                "[2] Merge Sort\n" +
+                "[3] .Net Sort\n" +
+                "[4] Exit\n");
         }
 
         public static void InvalidInput()
         {
             Console.WriteLine();
-            Console.WriteLine("Invalid input");
-            Console.WriteLine();
-            Console.WriteLine(Seperator);
-            Console.WriteLine();
+            Console.WriteLine("\nInvalid input\n" +
+                Seperator);
         }
 
         public static void InputNumber()
         {
-            Console.WriteLine();
-            Console.WriteLine(Seperator);
-            Console.WriteLine("Please enter the size of the array from 0 to 20");
+            Console.WriteLine("\n" + Seperator +
+                "\nPlease enter the size of the array from 0 to 20\n");
         }
 
-        //public static void UnsortedArray()
-        //{
-        //    Console.WriteLine();
-        //    Console.WriteLine(Seperator);
-        //    Console.WriteLine("Array generated: 1, 2, 3");
-        //    Console.WriteLine("Press <enter> to sort array");
-        //}
-
-        public static void SortedArray(int input)
+        public static void DisplaySorted(int sort, int len)
         {
-            Console.WriteLine();
-            Console.WriteLine(Seperator);
-            var array = Controller.GenerateArray(input);
-            Console.WriteLine();
-            Console.WriteLine(array);
-            Console.WriteLine();
-            Console.WriteLine(Controller.SortArray(array));
-            Console.WriteLine();
-            Console.WriteLine($"Time taken: {Controller.StopWatch()}");
-            Console.WriteLine();
-            Console.WriteLine("[1] Back to main menu");
-            Console.WriteLine("[2] Exit");
+            Console.WriteLine($"\n {Seperator}");
+            var array = Controller.GenerateArray(len);
+            Console.WriteLine(Controller.ArrayString(array));
+
+            Console.WriteLine($"\n {Seperator}");
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            var sortedArray = Controller.SortArray(array, sort);
+
+            stopwatch.Stop();
+
+            Console.WriteLine(Controller.ArrayString(sortedArray));
+
+            Console.WriteLine($"Time taken: {stopwatch.Elapsed}");
         }
     }
 }
