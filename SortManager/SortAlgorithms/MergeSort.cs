@@ -2,6 +2,7 @@
 {
     public class MergeSort
     {
+        public static string Name = "Merge sort";
         public static int[] Merge(int[] arrLeft, int[] arrRight)
         {
             var array = new int[arrLeft.Length + arrRight.Length];

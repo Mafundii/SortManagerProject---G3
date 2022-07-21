@@ -8,6 +8,7 @@ namespace SortAlgorithms
 {
     public class NetSort
     {
+        public static string Name = ".NET sort";
         public static int[] NetSorting(int[] array)
         {
             Array.Sort(array);

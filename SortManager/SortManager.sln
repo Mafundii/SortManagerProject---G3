@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortAlgorithms", "SortAlgor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortTests", "SortTests\SortTests.csproj", "{E6D9DF54-F53B-497C-BBF3-D5CB6CAFAC68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{B5A3F6E6-958E-400F-AA7A-DDFC76DCDC69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controller", "Controller\Controller.csproj", "{B5A3F6E6-958E-400F-AA7A-DDFC76DCDC69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

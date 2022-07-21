@@ -3,6 +3,7 @@ namespace SortAlgorithms
 {
     public class BubbleSort
     {
+        public static string Name = "Bubble sort";
         public static int[] BubbleSorting(int[] intArray)
         {
             if (intArray.Length == 0 || intArray == null)

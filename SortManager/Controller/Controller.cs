@@ -4,35 +4,27 @@ namespace SortManagerApp
 {
     public class Controller
     {
-        //Main menu:  select sorting algorithm or quit
-        //if invalid input:  "invalid input" -> Main menu
-        //if valid input:  select number of items in array
-        //if invalid number:  "invalid input" -> select number of items in array
-        //if valid number:  generate array, stopwatch and run sorting algorithm, return array -> Main
-
-        
-        public static int ParseSortMethod(string? input)
+        public static string SortMethod { get; set; }
+        public static int ParseOption(string? option)
         {
-            if (input == null) return 0;
-            if (Int32.TryParse(input, out int num))
+            if (option == null) return 0;
+            if (Int32.TryParse(option, out int num))
             {
                 if (num < 1 || num > 4)
                     return 0;
             }
             return num;
         }
-
-        public static int ParseLen(string? input)
+        public static int ParseLen(string? len)
         {
-            if (input == null) return -1;
-            if (Int32.TryParse(input, out int num))
+            if (len == null) return -1;
+            if (Int32.TryParse(len, out int num))
             {
                 if (num < 0 || num > 20)
                     return -1;
             }
             return num;
         }
-
         public static int[] GenerateArray(int len)
         {
             var _unsortedArray = new int[len];
@@ -42,28 +34,26 @@ namespace SortManagerApp
                 _unsortedArray[i] = random.Next(0, 1000);
             return _unsortedArray;
         }
-
-        public static int[] SortArray(int[] input, int sortMethod)
+        public static int[] SortArray(int[] array, int option)
         {
-            switch (sortMethod)
+            switch (option)
             {
                 case 1:
-                    return SortAlgorithms.BubbleSort.BubbleSorting(input);
+                    SortMethod = SortAlgorithms.BubbleSort.Name;
+                    return SortAlgorithms.BubbleSort.BubbleSorting(array);
                 case 2:
-                    return SortAlgorithms.MergeSort.MergeSorting(input);
+                    SortMethod = SortAlgorithms.MergeSort.Name;
+                    return SortAlgorithms.MergeSort.MergeSorting(array);
                 case 3:
-                    return SortAlgorithms.NetSort.NetSorting(input);
+                    SortMethod = SortAlgorithms.NetSort.Name;
+                    return SortAlgorithms.NetSort.NetSorting(array);
                 default:
-                    return input;
+                    return array;
             }
         }
-
-        public static string ArrayString(int[] array)
+        public static string ArrayString(int[] sortedArray)
         {
-            string result = "";
-            foreach (int i in array)
-                result += i + " ";
-            return result;
+            return String.Join(", ", sortedArray);
         }
     }
 }
