@@ -19,9 +19,9 @@ namespace SortTests
         }
 
         [TestCaseSource(typeof(TestData), nameof(TestData.EmptyArrayToTest))]
-        public void GivenAnEmptyArray_BubbleSorting_ReturnsEmptyArray(int[] array, int[] resultArray)
-        {
-            Assert.That(BubbleSort.BubbleSorting(array), Is.EqualTo(resultArray));
+        public void GivenAnEmptyArray_BubbleSorting_ReturnsEmptyArray(int[] array)
+        { 
+            Assert.That(BubbleSort.BubbleSorting(array), Is.EqualTo(array));
         }
 
         [TestCaseSource(typeof(TestData), nameof(TestData.NegativeArraysToTest))]
