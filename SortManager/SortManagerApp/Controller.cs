@@ -66,6 +66,31 @@
             }
         }
 
+        //public static bool ParseMainMenuInput(string? input)
+        //{
+        //    if (input is null) return false;
+        //    int sortNum = Int32.Parse(input);
+        //    switch (input)
+        //    {
+        //        case 1:
+        //            _sortMethod = 1;
+        //            break;
+        //        case 2:
+        //            _sortMethod = 2;
+        //            break;
+        //        case 3:
+        //            Environment.Exit(0);
+        //        default:
+        //            break;
+        //    }
+        //    return true;
+        //    if (sortNum == 3) Environment.Exit(0);
+        //    else if (sortNum == 1)
+        //        _sortMethod = 1;
+        //    else if (sortNum == 2)
+        //        _sortMethod = 2;
+        //}
+
         public static int[] GenerateArray(int len)
         {
             _unsortedArray = new int[len];
