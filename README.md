@@ -2,6 +2,36 @@
 This is the documentaton that will explain how to use this MVC SortManager, while also explaining the sorting algorithms that this program (and Microsoft's .NET Sort) will use to complete the job. The documentation will be split into two main sections. Section 1 will outline how to use the application, and Section 2 will explain the algorithms.
 
 ## How to use this programme
+<img src="https://user-images.githubusercontent.com/91839242/180285102-3c45756f-890b-46ff-8906-10d8e9044396.png" alt="meus" width='600'/>
+
+This section will explain how to use the Input/Output System of the Sorting program:
+
+### Main Menu
+<img src="https://user-images.githubusercontent.com/91839242/180285324-753cf5de-5d17-4f7c-bbfd-7f4688203093.png" alt="meus" width='600'/>
+
+This segment allows you to choose from the corresponding list of options 1 - 4. If the user types 4, the program will finish executing, if the user types a value between 1 - 3 inclusive, the progam will pick the corresponding algorithm. 
+
+
+### Size of the List
+<img src="https://user-images.githubusercontent.com/91839242/180285500-919300b7-6b52-431f-a3e5-519eeccf0f02.png" alt="meus" width='500'/>
+
+The second segment will allow the user to specify the size of the array, between zero and twenty (inclusive). TThe user will be prompted that their value is too low or high, before being sent back to the menu.
+
+
+### How the program will work
+<img src="https://user-images.githubusercontent.com/91839242/180285626-e4248e1d-f448-4656-9577-4483224da4fb.png" alt="meus" width='600'/>
+
+After both inputs have been typed, the array will be filled with randomly generated numbers. After that, the array will then be outputted to the user, and the array will be sent to the appropriate class & method, and the list will be sorted accordingly.
+
+
+One particular feature will show how long the search has taken to be completed. This is useful for those who wish to compare the speeds of certain searching algorithm.
+
+The important thing to note is that the order will always be ASCENDING and the array will always have RANDOMLY GENERATED values. 
+
+### Exit Program
+<img src="https://user-images.githubusercontent.com/91839242/180285731-bf8c840f-9816-4475-9104-640fe75a6f17.png" alt="meus" width='600'/>
+
+If the user wishes to leave the program, they simply opt for option four, which will result in the program finishing.
 
 
 ## The algorithms
