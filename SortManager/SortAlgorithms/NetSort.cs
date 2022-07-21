@@ -10,13 +10,8 @@ namespace SortAlgorithms
     {
         public static int[] NetSorting(int[] array)
         {
-            List<int> sortList = new List<int>();
-            foreach (int i in array)
-            {
-                sortList.Add(i);
-            }
-            sortList.Sort();
-            return sortList.ToArray();
+            Array.Sort(array);
+            return array;
         }
     }
 }
