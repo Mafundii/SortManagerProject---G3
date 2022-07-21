@@ -1,18 +1,12 @@
-﻿using SortAlgorithms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SortManagerApp
 {
-    public class Program
+    internal class VIew
     {
-        static void Main(string[] args)
-        {
-            int[] array = MergeSort.Sort(new int[] { -4, 12, -1, 0, 89, 1000, 9, -1 }); 
-            foreach (int i in array)
-            {
-                Console.WriteLine(i);
-            }
-                
-
-        }
     }
 }
