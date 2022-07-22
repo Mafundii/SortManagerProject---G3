@@ -1,39 +1,45 @@
-﻿using SortAlgorithms;
+﻿
+using Controller;
+using SortAlgorithms;
+
+
 
 namespace SortManagerApp
 {
-    public class Controller
+    public enum sortMethods
     {
-        //Main menu:  select sorting algorithm or quit
-        //if invalid input:  "invalid input" -> Main menu
-        //if valid input:  select number of items in array
-        //if invalid number:  "invalid input" -> select number of items in array
-        //if valid number:  generate array, stopwatch and run sorting algorithm, return array -> Main
-
-        
-        public static int ParseSortMethod(string? input)
+        BUBBLESORT, MERGESORT, NETSORT
+    }
+    public class Controller : SortFactory
+    {
+        public override ISortable GetSortable(int sortMethod)
         {
-            if (input == null) return 0;
+            sortMethod--;
+            switch (sortMethod)
+            {
+                case (int)sortMethods.BUBBLESORT:
+                    return new BubbleSort();
+                case (int)sortMethods.MERGESORT:
+                    return new MergeSort();
+                case (int)sortMethods.NETSORT:
+                    return new NetSort();
+                default:
+                    return new BubbleSort();
+            }
+        }
+
+        public static int Parse(string? input, int minNum, int maxNum)
+        {
+            if (input == null) return minNum - 1;
             if (Int32.TryParse(input, out int num))
             {
-                if (num < 1 || num > 4)
-                    return 0;
+                if (num < minNum || num > maxNum)
+                    return minNum - 1;
             }
             return num;
         }
 
-        public static int ParseLen(string? input)
-        {
-            if (input == null) return -1;
-            if (Int32.TryParse(input, out int num))
-            {
-                if (num < 0 || num > 20)
-                    return -1;
-            }
-            return num;
-        }
-
-        public static int[] GenerateArray(int len)
+        public int[] GenerateArray(int len)
         {
             var _unsortedArray = new int[len];
 
@@ -43,22 +49,12 @@ namespace SortManagerApp
             return _unsortedArray;
         }
 
-        public static int[] SortArray(int[] input, int sortMethod)
+        public int[] SortArray(int[] input, int sortMethod)
         {
-            switch (sortMethod)
-            {
-                case 1:
-                    return SortAlgorithms.BubbleSort.BubbleSorting(input);
-                case 2:
-                    return SortAlgorithms.MergeSort.MergeSorting(input);
-                case 3:
-                    return SortAlgorithms.NetSort.NetSorting(input);
-                default:
-                    return input;
-            }
+            return GetSortable(sortMethod).Sort(input);
         }
 
-        public static string ArrayString(int[] array)
+        public string ArrayString(int[] array)
         {
             string result = "";
             foreach (int i in array)
