@@ -1,6 +1,6 @@
 ﻿namespace SortAlgorithms
 {
-    public class MergeSort
+    public class MergeSort : ISortable
     {
         public static int[] Merge(int[] arrLeft, int[] arrRight)
         {
@@ -38,7 +38,7 @@
 
         }
 
-        public static int[] MergeSorting(int[] array)
+        public int[] Sort(int[] array)
         {
             if (array.Length <= 1) return array;
             int[] left;
@@ -72,8 +72,8 @@
 
             }
 
-            left = MergeSorting(left);
-            right = MergeSorting(right);
+            left = Sort(left);
+            right = Sort(right);
 
             var result = Merge(left, right);
 

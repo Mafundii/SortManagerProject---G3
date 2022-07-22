@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace SortAlgorithms
 {
-    public class NetSort : ISortable
+    public interface ISortable
     {
-        public int[] Sort(int[] array)
-        {
-            Array.Sort(array);
-            return array;
-        }
+        int[] Sort(int[] array);
     }
 }

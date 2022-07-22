@@ -1,9 +1,10 @@
 ﻿using System;
+
 namespace SortAlgorithms
 {
-    public class BubbleSort
+    public class BubbleSort : ISortable
     {
-        public static int[] BubbleSorting(int[] intArray)
+        public int[] Sort(int[] intArray)
         {
             if (intArray.Length == 0 || intArray == null)
                 return intArray;
